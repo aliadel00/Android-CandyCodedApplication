@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 public class InfoActivity extends AppCompatActivity {
     private static final String MapUri = "geo:0,0?q=618 E South St Orlando, FL 32801";
     private static final String packageName = "com.google.android.apps.maps";
-
+    private static final String PhoneUri = "tel:0123456789";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +41,12 @@ public class InfoActivity extends AppCompatActivity {
 
     // ***
     // TODO - Task 3 - Launch the Phone Activity
+    public void createPhoneIntent(View view){
+        Uri phoneUri;
+        phoneUri = Uri.parse(PhoneUri);
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        phoneIntent.setData(phoneUri);
+        startActivity(phoneIntent);
+    }
     // ***
 }
